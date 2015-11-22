@@ -28,9 +28,9 @@ private static RemoteWebDriver driver;
 	
 	capability.setCapability("binary", "C:\\Program Files(x86)\\Mozilla Firefox\\firefox.exe");
 	capability.setPlatform(Platform.ANY);
-	driver = new RemoteWebDriver(new URL("http://192.168.8.145:4444/wd/hub"),capability);
+	driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capability);
 
-driver.navigate().to("http://192.168.8.72:8080/HelloWorld/HelloWorld/WebContent/");
+driver.navigate().to("http://localhost:8191/HelloWorld/HelloWorld/WebContent/");
 driver.manage().window().maximize();
 
 driver.findElement(By.id("num1")).clear();
