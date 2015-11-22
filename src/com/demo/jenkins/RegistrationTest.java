@@ -30,7 +30,7 @@ private static RemoteWebDriver driver;
 	capability.setPlatform(Platform.ANY);
 	driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capability);
 
-driver.navigate().to("http://localhost:8191/HelloWorld/HelloWorld/WebContent/");
+driver.navigate().to("http://localhost:8181/DemoWebApp/login/Welcome.html");
 driver.manage().window().maximize();
 
 driver.findElement(By.id("num1")).clear();
