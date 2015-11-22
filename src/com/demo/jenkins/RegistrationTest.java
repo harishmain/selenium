@@ -33,13 +33,40 @@ private static RemoteWebDriver driver;
 driver.navigate().to("http://localhost:8181/DemoWebApp/login/Welcome.html");
 driver.manage().window().maximize();
 
-driver.findElement(By.id("num1")).clear();
+/*driver.findElement(By.id("num1")).clear();
 driver.findElement(By.id("num1")).sendKeys("4");
 driver.findElement(By.id("num2")).clear();
 driver.findElement(By.id("num2")).sendKeys("4");
 driver.findElement(By.id("add")).click();
 //String searchHeader = driver.findElement(By.cssSelector("H1")).getText().toLowerCase();
 //Assert.assertTrue(searchHeader.contains("ipod nano"));
+*/
+
+WebElement element = driver.findElement(By.xpath("//*[@id='usrname']"));
+
+		// set the Username in Text Box
+		element.sendKeys(userName);
+
+		// find the Password Text Box
+		element = driver.findElement(By.xpath("//*[@id='pwd']"));
+		
+		// set the Password in input Text Box
+		element.sendKeys(password);
+
+		// find the Login Button
+		element = driver.findElement(By.xpath("//*[@type='submit']"));
+		
+		// submit form
+		element.submit();
+		
+		// find the Successful Message 
+		element = driver.findElement(By.xpath("(//span)[1]"));
+		
+		// get the Successful Message		
+		String actualLoginMessage = element.getText();
+//		System.out.println("actualLoginMessage :: " + actualLoginMessage);
+		Assert.assertEquals(actualLoginMessage, expectedMessage);
+
 driver.close();
 
 
