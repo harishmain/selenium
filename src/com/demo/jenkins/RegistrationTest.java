@@ -15,6 +15,8 @@ import org.testng.annotations.Test;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import java.util.*;
+
+
 @Test
 public class RegistrationTest {
 	WebDriver webdriver ;
