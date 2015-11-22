@@ -15,7 +15,8 @@ import org.testng.annotations.Test;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import java.util.*;
-
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 @Test
 public class RegistrationTest {
@@ -43,14 +44,19 @@ driver.findElement(By.id("add")).click();
 //String searchHeader = driver.findElement(By.cssSelector("H1")).getText().toLowerCase();
 //Assert.assertTrue(searchHeader.contains("ipod nano"));
 */
+WebDriverWait wait = new WebDriverWait(driver, 30);// 1 minute 
 
 WebElement element = driver.findElement(By.xpath("//*[@id='usrname']"));
 
+
+               wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("usrname")))
+        
 		// set the Username in Text Box
 		element.sendKeys(userName);
 
 		// find the Password Text Box
 		element = driver.findElement(By.xpath("//*[@id='pwd']"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("pwd")))
 		
 		// set the Password in input Text Box
 		element.sendKeys(password);
